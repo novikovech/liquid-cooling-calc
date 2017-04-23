@@ -5,11 +5,11 @@ os_encoding = locale.getpreferredencoding()
 
 #user settings:
 
-pump_flow = 100 #l/h
-pump_head = 2 #meters H2O
-power = 500 #W, max power dissipated by the cooling system. 
+pump_flow = 240 #l/h
+pump_head = 4 #meters H2O
+power = 300 #W, max power dissipated by the cooling system. 
 ethanol = True #Are you using ethanol coolant instead of water?
-fan_cfm = 100 # cfm of the fans cooling the radiator (add cfm's of all parallel fans)
+fan_cfm = 50 # cfm of the fans cooling the radiator (add cfm's of all parallel fans)
 
 #advanced user settings:
 restriction_power = 1.4 #exponent used in the equation governing loop restriction, default is 1.4
@@ -100,7 +100,7 @@ cfs = (0.0+fan_cfm)/60 *0.5 #about right, based on some research I saw.
 capacity = cp_water
 if ethanol:
 	capacity=cp_ethanol
-air_cap = cp_air*kg_in_foot*cfs*1000
+air_cap = cp_air*kg_in_foot*cfs*1000 #J/s.K = W/K
 cooling_delta = power/capacity/flow
 radiator_delta = power/air_cap
 
